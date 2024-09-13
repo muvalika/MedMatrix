@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+import 'package:flutter/material.dart';
+void main(){
+runApp(MyApp());
+}
+class MyApp extends StatelessWidget{
+@override
+Widget build(BuildContext context){
+return MaterialApp(
+title: 'Medmatrix'
+theme: ThemeData(
+primarySwatch: Color.blue,
+),
+home: MedmatrixHomeScreen(),
+);
+}
+}
+
+class _MedmatrixHomeScreen extends StatefulWidget {
+@override
+_MedmatrixHomeScreenState createState() => _MedmatrixHomeScreenState();
+}
+
+class _MedmatrixHomeScreenState extends State<MedmatrixHomeScreen>{
+final_formKey = GlobalKey<FormState>();
+String _PatientId;
+String _CityHealthOffcier;
+String _SuperAdmin;
+String _HospitalAdminDashboard;
+String _Labincharge;
+String _PharmacySector;
+.
+.
+.
+
+String _signup = 'Enter your username','Role of admin','Enter your email','Enter your password','Select role';
+String _inputdata = 'Super Admin','City Admin','Hospital Admin','Data Entry Operator','Lab Incharge','Pharmacy';
+
+@override
+Widget build(BuildContext context)
+{
+return Scaffold(
+appBar: AppBar(
+title: Text('Medmatrix'),
+),
+body: Padding(
+padding: const EdgeInsets.all(30.0),
+child: Form(
+Key: _formKey,
+child: Column(
+children: [
+TextFormField(
+decoration: InputDecoration(labelText: 'PatientId'),
+decoration: InputDecoration(labelText: 'CityHealthOfficer'),
+decoration: InputDecoration(labelText: 'SuperAdmin'),
+decoration: InputDecoration(labelText: 'HospitaAdminDashboard'),
+decoration: InputDecoration(labelText: 'LabIncharge'),
+decoration: InputDecoration(labelText: 'PharmacySector'),
+
+validator: (value) {
+if(value.isEmpty) {
+return 'Please enter a PatientId';
+return 'Please enter a CityHealthOffcier';
+return 'Please enter a SuperAdmin';
+return 'Please enter a HospitalAdminDashboard';
+return 'Please enter a LabIncharge';
+return 'Please enter a PharmacySector';
+}
+return null;
+},
+OnSaved: (value) => _CityHealthOfficier = value,
+),
+TextFormField(
+decoration: InputDecoration(labelText: 'SuperAdmin'),
+validator: (value) {
+if(value.isEmpty) {
+return 'Please enter SuperAdminId';
+}
+return null;
+},
+onSaved: (value) => _SuperAdmin = value,
+),
+SizedBox(height: 30),
+ElevatedButton(
+onPressed: () {
+if(_formKey.currentState.validate()) {
+_formKey.currentState.save();
